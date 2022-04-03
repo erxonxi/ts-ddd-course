@@ -13,7 +13,8 @@
       true,
       {
         "code": 120,
-        "tabWidth": 2,
+        "tabWidth": 4,
+        "useTabs": true,
         "ignoreImports": true,
         "ignoreUrls": true,
         "ignoreTemplateLiterals": true,
