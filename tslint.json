@@ -13,8 +13,7 @@
       true,
       {
         "code": 120,
-        "tabWidth": 4,
-        "useTabs": true,
+        "tabWidth": 2,
         "ignoreImports": true,
         "ignoreUrls": true,
         "ignoreTemplateLiterals": true,
@@ -45,13 +44,7 @@
     "no-duplicate-variable": true,
     "no-inferrable-types": [true, "ignore-params"],
     "no-var-keyword": true,
-    "variable-name": [
-      true,
-      "ban-keywords",
-      "check-format",
-      "allow-leading-underscore",
-      "allow-pascal-case"
-    ],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
     "no-empty": false,
     "no-shadowed-variable": true,
     "no-unused-expression": true,
@@ -78,14 +71,7 @@
         "variable-declaration": "onespace"
       }
     ],
-    "whitespace": [
-      true,
-      "check-branch",
-      "check-decl",
-      "check-operator",
-      "check-separator",
-      "check-type"
-    ],
+    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
     "no-duplicate-imports": true
   }
 }
