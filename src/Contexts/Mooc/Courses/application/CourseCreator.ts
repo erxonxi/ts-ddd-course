@@ -1,6 +1,8 @@
-import { Uuid } from '../../../Shared/infrastructure/value-object/Uuid';
-import { Course } from '../domain/Course';
 import { CourseRepository } from '../domain/CourseRepository';
+import { CourseDuration } from '../domain/CourseDuration';
+import { CourseName } from '../domain/CourseName';
+import { CourseId } from '../domain/CourseId';
+import { Course } from '../domain/Course';
 
 type Params = {
   id: string;
@@ -16,7 +18,11 @@ export class CourseCreator {
   }
 
   async run({ id, name, duration }: Params): Promise<void> {
-    const course = new Course({ id: new Uuid(id), name, duration });
+    const course = new Course({
+      id: new CourseId(id),
+      name: new CourseName(name),
+      duration: new CourseDuration(duration)
+    });
     return this.repository.save(course);
   }
 }
