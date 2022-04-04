@@ -3,6 +3,7 @@ import fs from 'fs';
 
 import { CourseRepository } from '../../domain/CourseRepository';
 import { Course } from '../../domain/Course';
+import { Nullable } from '../../../../Shared/domain/Nullable';
 
 export class FileCourseRepository implements CourseRepository {
   private FILE_PATH = `${__dirname}/courses`;
@@ -11,7 +12,7 @@ export class FileCourseRepository implements CourseRepository {
     fs.promises.writeFile(this.filePath(course.id.value), serialize(course));
   }
 
-  async search(courseId: string): Promise<Course> {
+  async search(courseId: any): Promise<Nullable<Course>> {
     const courseData = await fs.promises.readFile(this.filePath(courseId));
     const { id, name, duration } = deserialize(courseData);
     return new Course({ id, name, duration });
