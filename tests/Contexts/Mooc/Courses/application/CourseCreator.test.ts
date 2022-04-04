@@ -1,9 +1,8 @@
 import { CourseCreator } from '../../../../../src/Contexts/Mooc/Courses/application/CourseCreator';
-import { Course } from '../../../../../src/Contexts/Mooc/Courses/domain/Course';
-import { CourseDuration } from '../../../../../src/Contexts/Mooc/Courses/domain/CourseDuration';
-import { CourseId } from '../../../../../src/Contexts/Mooc/Courses/domain/CourseId';
-import { CourseName } from '../../../../../src/Contexts/Mooc/Courses/domain/CourseName';
+import { CourseNameLengthExceeded } from '../../../../../src/Contexts/Mooc/Courses/domain/CourseNameLengthExceeded';
 import { CourseRepositoryMock } from '../__mocks__/CourseRepositoryMock';
+import { CourseMother } from './CourseMother';
+import { CreateCourseRequestMother } from './CreateCourseRequestMother';
 
 let repository: CourseRepositoryMock;
 let creator: CourseCreator;
@@ -15,17 +14,21 @@ beforeEach(() => {
 
 describe('CourseCreator', () => {
   it('should create a valid course', async () => {
-    const id = '4a2005ea-4d57-40b9-9a90-aad86f07bc27';
-    const name = 'some-name';
-    const duration = 'some-duration';
+    const request = CreateCourseRequestMother.random();
 
-    const course = new Course({
-      id: new CourseId(id),
-      name: new CourseName(name),
-      duration: new CourseDuration(duration)
-    });
+    const course = CourseMother.fromRequest(request);
 
-    await creator.run({ id, name, duration });
+    await creator.run(request);
     repository.assertLastSavedCourseIs(course);
+  });
+
+  it('throw error a invalid course', async () => {
+    expect(() => {
+      const request = CreateCourseRequestMother.invalidRequest();
+
+      const course = CourseMother.fromRequest(request);
+
+      repository.assertLastSavedCourseIs(course);
+    }).toThrow(CourseNameLengthExceeded);
   });
 });

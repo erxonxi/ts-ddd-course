@@ -4,7 +4,7 @@ import { CourseName } from '../domain/CourseName';
 import { CourseId } from '../domain/CourseId';
 import { Course } from '../domain/Course';
 
-type Params = {
+export type CourseCreatorParams = {
   id: string;
   name: string;
   duration: string;
@@ -17,7 +17,7 @@ export class CourseCreator {
     this.repository = repository;
   }
 
-  async run({ id, name, duration }: Params): Promise<void> {
+  async run({ id, name, duration }: CourseCreatorParams): Promise<void> {
     const course = new Course({
       id: new CourseId(id),
       name: new CourseName(name),
