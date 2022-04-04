@@ -1,0 +1,6 @@
+{
+    "env": "production",
+    "mongo": {
+        "url": "mongodb://localhost:27017/backend-test"
+    }
+}
