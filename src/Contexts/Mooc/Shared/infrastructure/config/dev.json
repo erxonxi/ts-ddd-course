@@ -2,5 +2,8 @@
     "env": "development",
     "mongo": {
         "url": "mongodb://localhost:27017/backend-dev"
+    },
+    "jwt": {
+        "secret": "82340b85-21fa-466d-9f77-9eab2990fcbd"
     }
 }

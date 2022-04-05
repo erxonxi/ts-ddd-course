@@ -14,6 +14,14 @@ const moocConfig = convict({
       default: 'MONGO_URL',
       env: 'mongodb://localhost:27017/backend-dev'
     }
+  },
+  jwt: {
+    secret: {
+      doc: 'The secret key to encrypt with JWT.',
+      format: String,
+      default: 'JWT_SECRET',
+      env: '82340b85-21fa-466d-9f77-9eab2990fcbd'
+    }
   }
 });
 

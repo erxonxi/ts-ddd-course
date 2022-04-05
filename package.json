@@ -24,6 +24,7 @@
     "build:clean": "rm -r dist; exit 0"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "bodybuilder": "^2.4.0",
     "bson": "^4.5.2",
@@ -40,6 +41,7 @@
     "glob": "^7.2.0",
     "helmet": "^4.6.0",
     "http-status": "^1.5.0",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.5.0",
     "node-dependency-injection": "^2.7.1",
     "nunjucks": "^3.2.3",
@@ -50,6 +52,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/bson": "^4.0.5",
     "@types/compression": "^1.7.2",
     "@types/connect-flash": "0.0.37",
@@ -63,6 +66,7 @@
     "@types/glob": "^7.1.4",
     "@types/helmet": "0.0.48",
     "@types/jest": "^27.0.2",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/mongodb": "^4.0.7",
     "@types/node": "^16.10.2",
     "@types/nunjucks": "^3.2.0",

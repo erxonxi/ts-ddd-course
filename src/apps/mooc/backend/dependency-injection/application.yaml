@@ -1,3 +1,16 @@
 imports:
   - { resource: ./apps/application.yaml }
   - { resource: ./Courses/application.yaml }
+  - { resource: ./Users/application.yaml }
+
+services:
+  Mooc.MongoConfig:
+    factory:
+      class: ../../../../Contexts/Mooc/Shared/infrastructure/persistence/mongo/MongoConfigFactory
+      method: "createConfig"
+
+  Mooc.ConnectionManager:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/persistence/mongo/MongoClientFactory
+      method: "createClient"
+    arguments: ["mooc", "@Mooc.MongoConfig"]

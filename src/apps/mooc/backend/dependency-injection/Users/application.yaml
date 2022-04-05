@@ -1,0 +1,8 @@
+services:
+  Mooc.Users.domain.UserRepository:
+    class: ../../../../../Contexts/Mooc/Users/infrastructure/persistence/MongoUserRepository
+    arguments: ["@Mooc.ConnectionManager"]
+
+  Mooc.Users.application.SingUpUser:
+    class: ../../../../../Contexts/Mooc/Users/application/SingUpUser
+    arguments: ["@Mooc.Users.domain.UserRepository"]

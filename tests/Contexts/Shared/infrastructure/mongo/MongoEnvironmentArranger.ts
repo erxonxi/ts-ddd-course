@@ -7,7 +7,7 @@ export class MongoEnvironmentArranger extends EnvironmentArranger {
   }
 
   public async arrange(): Promise<void> {
-    await this.cleanDatabase();
+    // await this.cleanDatabase();
   }
 
   protected async cleanDatabase(): Promise<void> {
