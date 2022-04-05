@@ -4,6 +4,7 @@ import { UserPassword } from '../domain/UserPassword';
 import { UserUsername } from '../domain/UserUsername';
 import { UserId } from '../domain/UserId';
 import { User } from '../domain/User';
+import { HashEncrypt } from '../infrastructure/encrypt/HashEncrypt';
 
 export type SingUpUserParams = {
   id: string;
@@ -20,11 +21,12 @@ export class SingUpUser {
   }
 
   async run({ id, username, password, email }: SingUpUserParams): Promise<void> {
+    const passwordHash = await HashEncrypt.hash(password);
     const user = new User({
       id: new UserId(id),
       username: new UserUsername(username),
       email: new UserEmail(email),
-      password: new UserPassword(password)
+      password: new UserPassword(passwordHash)
     });
     return this.repository.save(user);
   }
