@@ -1,8 +1,5 @@
-Feature: Create a new course
-  In order to have courses in the platform
-  As a user with admin permissions
-  I want to create a new course
-
+Feature: Sing Up
+  Sing Up Service Test
   Scenario: Sing Up New User
     Given I send a POST request to "/users/singup" with body:
       """

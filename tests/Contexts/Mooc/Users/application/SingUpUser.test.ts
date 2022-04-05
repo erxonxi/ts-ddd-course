@@ -13,7 +13,7 @@ beforeEach(() => {
 });
 
 describe('SingUpUser', () => {
-  it('should create a valid User', async () => {
+  it('should sing in valid User', async () => {
     const request = SingUpUserRequestMother.random();
 
     const user = UserMother.fromRequest(request);
