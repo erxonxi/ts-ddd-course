@@ -1,6 +1,6 @@
 Feature: Sing In
   Sing In Service Test
-  Scenario: Sing Up New User
+  Scenario: [ Preparación ] Sing Up - Crear Nuevo Usuario
     Given I send a POST request to "/users/singup" with body:
       """
       {
@@ -12,7 +12,7 @@ Feature: Sing In
       """
     Then the response status code should be 201
 
-  Scenario: Sing In
+  Scenario: Sing In - Acceder Usando Nuevo Usuario
     Given I send a POST request to "/users/singin" with body:
       """
       {
