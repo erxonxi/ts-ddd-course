@@ -5,6 +5,7 @@ import { UserUsername } from '../domain/UserUsername';
 import { UserId } from '../domain/UserId';
 import { User } from '../domain/User';
 import { HashEncrypt } from '../infrastructure/encrypt/HashEncrypt';
+import { UserUnauthorizedError } from '../domain/UserUnauthorizedError';
 
 export type SingUpUserParams = {
   id: string;
@@ -21,6 +22,11 @@ export class SingUpUser {
   }
 
   async run({ id, username, password, email }: SingUpUserParams): Promise<void> {
+    const userExists = await this.repository.searchByEmail(new UserEmail(email));
+    if (userExists) {
+      throw new UserUnauthorizedError('User email is already in use');
+    }
+
     const passwordHash = await HashEncrypt.hash(password);
     const user = new User({
       id: new UserId(id),

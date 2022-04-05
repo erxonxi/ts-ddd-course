@@ -6,6 +6,7 @@ import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
 import httpStatus from 'http-status';
+import { InvalidArgumentError } from '../../../Contexts/Shared/domain/value-object/InvalidArgumentError';
 import { registerRoutes } from './routes';
 
 export class Server {
@@ -31,6 +32,9 @@ export class Server {
 
     router.use((err: Error, req: Request, res: Response, next: Function) => {
       process.env.NODE_ENV == 'dev' && console.log(err);
+      if (err instanceof InvalidArgumentError) {
+        res.status(httpStatus.UNPROCESSABLE_ENTITY).json({ message: err.message });
+      }
       res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ message: err.message });
     });
   }
