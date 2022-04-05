@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { Controller } from './Controller';
+import { Controller } from '../Controller';
 import httpStatus from 'http-status';
 
-import { MeUser } from '../../../../Contexts/Mooc/Users/application/MeUser';
-import { ProtectedController } from './ProtectedController';
+import { MeUser } from '../../../../../Contexts/Mooc/Users/application/MeUser';
+import { ProtectedController } from '../ProtectedController';
 
 interface RequestLogged extends Request {
   token: string;

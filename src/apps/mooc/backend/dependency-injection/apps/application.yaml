@@ -4,17 +4,17 @@ services:
     arguments: []
 
   Apps.mooc.controllers.CoursePutController:
-    class: ../../controllers/CoursePutController
+    class: ../../controllers/Courses/CoursePutController
     arguments: ["@Mooc.Courses.application.CourseCreator"]
 
   Apps.mooc.controllers.UsersPostSingUpController:
-    class: ../../controllers/UsersPostSingUpController
+    class: ../../controllers/Users/UsersPostSingUpController
     arguments: ["@Mooc.Users.application.SingUpUser"]
 
   Apps.mooc.controllers.UsersPostSingInController:
-    class: ../../controllers/UsersPostSingInController
+    class: ../../controllers/Users/UsersPostSingInController
     arguments: ["@Mooc.Users.application.SingInUser"]
   
   Apps.mooc.controllers.UsersGetMeController:
-    class: ../../controllers/UsersGetMeController
+    class: ../../controllers/Users/UsersGetMeController
     arguments: ["@Mooc.Users.application.MeUser"]

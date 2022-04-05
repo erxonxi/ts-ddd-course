@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { Controller } from './Controller';
 import httpStatus from 'http-status';
 
-import { CourseCreator } from '../../../../Contexts/Mooc/Courses/application/CourseCreator';
+import { CourseCreator } from '../../../../../Contexts/Mooc/Courses/application/CourseCreator';
+import { Controller } from '../Controller';
 
 export class CoursePutController implements Controller {
   constructor(private courseCreator: CourseCreator) {}

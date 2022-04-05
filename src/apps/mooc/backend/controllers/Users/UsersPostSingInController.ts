@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { Controller } from './Controller';
 import httpStatus from 'http-status';
 
-import { SingInUser } from '../../../../Contexts/Mooc/Users/application/SingInUser';
+import { SingInUser } from '../../../../../Contexts/Mooc/Users/application/SingInUser';
+import { Controller } from '../Controller';
 
 export class UsersPostSingInController implements Controller {
   constructor(private singInUser: SingInUser) {}
