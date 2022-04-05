@@ -32,7 +32,7 @@ export class SingInUser {
     }
 
     const jwt = new JWTEncrypt();
-    const token = jwt.encrypt(user.toPrimitives());
+    const token = jwt.encrypt({ user_id: user.id.value });
     return {
       token: token
     };

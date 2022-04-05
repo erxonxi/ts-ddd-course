@@ -6,7 +6,11 @@ services:
   Mooc.Users.application.SingUpUser:
     class: ../../../../../Contexts/Mooc/Users/application/SingUpUser
     arguments: ["@Mooc.Users.domain.UserRepository"]
-  
+
   Mooc.Users.application.SingInUser:
     class: ../../../../../Contexts/Mooc/Users/application/SingInUser
+    arguments: ["@Mooc.Users.domain.UserRepository"]
+
+  Mooc.Users.application.MeUser:
+    class: ../../../../../Contexts/Mooc/Users/application/MeUser
     arguments: ["@Mooc.Users.domain.UserRepository"]

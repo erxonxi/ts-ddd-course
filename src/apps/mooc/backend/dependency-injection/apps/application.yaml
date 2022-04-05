@@ -14,3 +14,7 @@ services:
   Apps.mooc.controllers.UsersPostSingInController:
     class: ../../controllers/UsersPostSingInController
     arguments: ["@Mooc.Users.application.SingInUser"]
+  
+  Apps.mooc.controllers.UsersGetMeController:
+    class: ../../controllers/UsersGetMeController
+    arguments: ["@Mooc.Users.application.MeUser"]

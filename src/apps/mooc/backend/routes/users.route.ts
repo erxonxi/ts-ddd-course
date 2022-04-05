@@ -23,4 +23,7 @@ export const register = (router: Router) => {
   router.post('/users/singin', reqSchemaSingIn, validateReqSchema, (req: Request, res: Response) =>
     usersPostSingInController.run(req, res)
   );
+
+  const usersGetMeController = container.get('Apps.mooc.controllers.UsersGetMeController');
+  router.get('/users/me', (req: Request, res: Response) => usersGetMeController.run(req, res));
 };

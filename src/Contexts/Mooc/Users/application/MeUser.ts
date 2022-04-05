@@ -20,7 +20,6 @@ export class MeUser {
 
   async run({ id }: MeUserParams): Promise<MeUserResponse> {
     const user = await this.repository.search(new UserId(id));
-    console.log(user);
 
     if (!user) {
       throw new UserUnauthorizedError('Unauthorized');
