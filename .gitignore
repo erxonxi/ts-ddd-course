@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .tmp
+*.repo
 logs/
 data
 test-results.xml
