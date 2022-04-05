@@ -9,3 +9,9 @@ Feature: Sing In
       }
       """
     Then the response status code should be 200
+    And the response body equals:
+      """
+      {
+        "token": "token"
+      }
+      """

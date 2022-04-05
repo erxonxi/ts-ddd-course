@@ -10,8 +10,8 @@ export class UsersPostSingInController implements Controller {
   async run(req: Request, res: Response) {
     const { email, password } = req.body;
 
-    await this.singInUser.run({ email, password });
+    const { token } = await this.singInUser.run({ email, password });
 
-    res.status(httpStatus.OK).send();
+    res.status(httpStatus.OK).json({ token });
   }
 }

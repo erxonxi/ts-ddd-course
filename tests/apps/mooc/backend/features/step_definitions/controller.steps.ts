@@ -27,6 +27,10 @@ Then('the response should be empty', () => {
   assert.deepStrictEqual(_response.body, {});
 });
 
+Then('the response body equals:', (body: string) => {
+  assert.notDeepEqual(_response.body, JSON.parse(body));
+});
+
 BeforeAll(async () => {
   application = new MoocBackendApp();
   await application.start();
