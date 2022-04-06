@@ -1,0 +1,4 @@
+services:
+  Mooc.Tenants.domain.TenantRepository:
+    class: ../../../../../Contexts/Mooc/Tenants/infrastructure/persistence/MongoTenantRepository
+    arguments: ["@Mooc.ConnectionManager"]
