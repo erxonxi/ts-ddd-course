@@ -1,7 +1,12 @@
 import assert from 'assert';
 import { AfterAll, BeforeAll, Given, Then } from 'cucumber';
 import request from 'supertest';
+
+import { EnvironmentArranger } from '../../../../../Contexts/Shared/infrastructure/arranger/EnvironmentArranger';
 import { MoocBackendApp } from '../../../../../../src/apps/mooc/backend/MoocBackendApp';
+import container from '../../../../../../src/apps/mooc/backend/dependency-injection';
+
+const environmentArranger: Promise<EnvironmentArranger> = container.get('Mooc.EnvironmentArranger');
 
 let _request: request.Test;
 let application: MoocBackendApp;
@@ -33,9 +38,12 @@ Then('the response body equals:', (body: string) => {
 
 BeforeAll(async () => {
   application = new MoocBackendApp();
+  await (await environmentArranger).arrange();
   await application.start();
 });
 
 AfterAll(async () => {
+  await (await environmentArranger).arrange();
+  await (await environmentArranger).close();
   await application.stop();
 });

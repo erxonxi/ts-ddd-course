@@ -1,0 +1,8 @@
+services:
+  Mooc.Shops.domain.ShopRepository:
+    class: ../../../../../Contexts/Mooc/Shops/infrastructure/persistence/MongoShopRepository
+    arguments: ["@Mooc.ConnectionManager"]
+
+  Mooc.Shops.application.ShopCreator:
+    class: ../../../../../Contexts/Mooc/Shops/application/ShopCreator
+    arguments: ["@Mooc.Shops.domain.ShopRepository"]

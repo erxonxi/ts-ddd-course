@@ -18,3 +18,7 @@ services:
   Apps.mooc.controllers.UsersGetMeController:
     class: ../../controllers/Users/UsersGetMeController
     arguments: ["@Mooc.Users.application.MeUser"]
+
+  Apps.mooc.controllers.ShopPutController:
+    class: ../../controllers/Shops/ShopPutController
+    arguments: ["@Mooc.Shops.application.ShopCreator"]

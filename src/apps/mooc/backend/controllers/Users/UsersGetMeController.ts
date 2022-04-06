@@ -1,14 +1,9 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { Controller } from '../Controller';
 import httpStatus from 'http-status';
 
 import { MeUser } from '../../../../../Contexts/Mooc/Users/application/MeUser';
-import { ProtectedController } from '../ProtectedController';
-
-interface RequestLogged extends Request {
-  token: string;
-  user_id: string;
-}
+import { ProtectedController, RequestLogged } from '../ProtectedController';
 
 export class UsersGetMeController extends ProtectedController implements Controller {
   constructor(private meUser: MeUser) {

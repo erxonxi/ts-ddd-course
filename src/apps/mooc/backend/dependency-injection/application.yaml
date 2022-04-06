@@ -2,6 +2,7 @@ imports:
   - { resource: ./apps/application.yaml }
   - { resource: ./Courses/application.yaml }
   - { resource: ./Users/application.yaml }
+  - { resource: ./Shops/application.yaml }
 
 services:
   Mooc.MongoConfig:
