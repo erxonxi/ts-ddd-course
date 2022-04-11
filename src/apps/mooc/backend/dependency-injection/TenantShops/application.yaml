@@ -1,0 +1,8 @@
+services:
+  Mooc.TenantShops.domain.TenantShopRepository:
+    class: ../../../../../Contexts/Mooc/TenantShops/infrastructure/persistence/MongoTenantShopRepository
+    arguments: ["@Mooc.ConnectionManager"]
+
+  Mooc.TenantShops.application.TenantShopCreator:
+    class: ../../../../../Contexts/Mooc/TenantShops/application/TenantShopCreator
+    arguments: ["@Mooc.TenantShops.domain.TenantShopRepository"]
